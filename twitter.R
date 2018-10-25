@@ -22,8 +22,8 @@ milwaukee_pd <- getUser("16806352")
 cpd_friends <- cpd$getFriendIDs()
 
 #Hash tag search. Beware the sewer
-tweets_blue_lives <- searchTwitter("#bluelivesmatter")
-back_blue <- searchTwitter("#BackTheBlue")
+tweets_blue_lives <- searchTwitter("#bluelivesmatter", n = 1000) %>% twListToDF()
+back_blue <- searchTwitter("#BackTheBlue", n = 1000) %>% twListToDF()
 
 
 #turns list into DF./ Just easier for me to read.
@@ -35,3 +35,7 @@ blue_lives_followers <- blue_lives$getFollowerIDs()
 
 #get friendships
 friendships(c(blue_lives))
+
+#favorited
+favorite_cpd <- cpd$getFavorites
+favorite_cpd <- favorite_cpd %>% twListToDF()
