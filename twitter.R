@@ -22,8 +22,16 @@ milwaukee_pd <- getUser("16806352")
 cpd_friends <- cpd$getFriendIDs()
 
 #Hash tag search. Beware the sewer
-tweets_blue_lives <- searchTwitter("#bluelivesmatter", n = 1000) %>% twListToDF()
-back_blue <- searchTwitter("#BackTheBlue", n = 1000) %>% twListToDF()
+tweets_blue_lives <- searchTwitter("#bluelivesmatter", n = 2000) %>% twListToDF()
+back_blue <- searchTwitter("#BackTheBlue", n = 3000) %>% twListToDF()
+maga <- searchTwitter("#maga", n = 10000) %>% twListToDF()
+
+#Pulling text of maga tweets
+maga_text <- maga %>% select(text)
+
+#just getting screen names
+maga_screen_names <- maga$screenName
+
 
 
 #turns list into DF./ Just easier for me to read.
@@ -39,3 +47,6 @@ friendships(c(blue_lives))
 #favorited
 favorite_cpd <- cpd$getFavorites
 favorite_cpd <- favorite_cpd %>% twListToDF()
+
+
+#this is where i will cache/save work so i don't have to call twitter all the tim
