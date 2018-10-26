@@ -1,5 +1,6 @@
 library(twitteR)
-maga_bomber1 <- getUser("@hardrockintlent")
+maga_bomber1_rtweet <- lookup_users("hardrockintlent")
+maga-bomber_timeline_rtweet <- get_timeline("hardrockintlent", n = 3200)
 
 maga_bomber_tweets1 <- userTimeline(maga_bomber1, n = 3200)
 
@@ -25,4 +26,4 @@ maga_bomber_list <- list(maga_bomber_tweets1, mega_bomber_tweets2,
                          maga_bomber_hash)
 
 
-saveRDS(maga_bomber_list, "maga_bomber_list")
+saveRDS(maga_bomber_list, "maga_bomber_list.RDS")
