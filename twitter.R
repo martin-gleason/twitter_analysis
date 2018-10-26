@@ -22,15 +22,18 @@ milwaukee_pd <- getUser("16806352")
 cpd_friends <- cpd$getFriendIDs()
 
 #Hash tag search. Beware the sewer
-tweets_blue_lives <- searchTwitter("#bluelivesmatter", n = 2000) %>% twListToDF()
-back_blue <- searchTwitter("#BackTheBlue", n = 3000) %>% twListToDF()
+tweets_blue_lives <- searchTwitter("#bluelivesmatter", n = 20000) %>% twListToDF()
+back_blue <- searchTwitter("#BackTheBlue", n = 10000) %>% twListToDF()
 maga <- searchTwitter("#maga", n = 10000) %>% twListToDF()
+
+
 
 #Pulling text of maga tweets
 maga_text <- maga %>% select(text)
 
 #just getting screen names
 maga_screen_names <- maga$screenName
+nrow(maga_screen_names)
 
 
 
@@ -49,4 +52,6 @@ favorite_cpd <- cpd$getFavorites
 favorite_cpd <- favorite_cpd %>% twListToDF()
 
 
-#this is where i will cache/save work so i don't have to call twitter all the tim
+#this is where i will cache/save work so i don't have to call twitter all the time
+tweets_from_10_26_18_7am <- list(tweets_blue_lives, back_blue, maga)
+saveRDS(tweets_from_10_26_18_7am, "tweet_data_10_26_18.RData")
