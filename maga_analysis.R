@@ -29,7 +29,7 @@ token_hashtags <- unnested_hashtags %>%
   filter(n_tokens_per_id > 1728)
 
 token_hashtags %>% 
-  ggplot(aes(x = tokens, y = n_tokens_per_id, fill = user_id)) + 
+  ggplot(aes(x = tokens, y = n_tokens_per_id, fill = screen_name)) + 
   geom_bar(stat = "identity", position =) +
   coord_flip()
 
