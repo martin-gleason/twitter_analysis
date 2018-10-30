@@ -33,5 +33,6 @@ token_hashtags %>%
   geom_bar(stat = "identity", position =) +
   coord_flip()
 
+
 #in depth
 lucy <- lookup_users("837155895104651265")
